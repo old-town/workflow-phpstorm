@@ -1,0 +1,52 @@
+<idea-plugin version="2">
+  <id>ru.oldtown.idea.workflowplugin</id>
+  <name>Old Town Workflow Plugin</name>
+  <version>1.0</version>
+  <vendor email="and-rey2@yandex.ru" url="https://github.com/old-town/">OldTown</vendor>
+
+  <description><![CDATA[
+      Plugin for OldTown Workflow<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+
+    ]]>
+  </change-notes>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="8000"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.jetbrains.php</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <psi.referenceContributor implementation="ru.oldtown.idea.workflowplugin.config.workflow.xml.XmlReferenceContributor"/>
+    <completion.contributor language="XML" implementationClass="ru.oldtown.idea.workflowplugin.config.workflow.xml.XmlCompletionContributor"/>
+
+    <localInspection groupPath="OldTownWorkflow" shortName="InvalidFunctionClassNameInspection" displayName="Invalid class name"
+                     groupName="Service"
+                     enabledByDefault="true" level="WARNING"
+                     language="XML"
+                     implementationClass="ru.oldtown.idea.workflowplugin.config.workflow.xml.inspection.InvalidFunctionClassNameInspection"/>
+
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
