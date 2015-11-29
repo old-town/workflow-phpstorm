@@ -29,11 +29,7 @@
     <psi.referenceContributor implementation="ru.oldtown.idea.workflowplugin.config.workflow.xml.XmlReferenceContributor"/>
     <completion.contributor language="XML" implementationClass="ru.oldtown.idea.workflowplugin.config.workflow.xml.XmlCompletionContributor"/>
 
-    <localInspection groupPath="OldTownWorkflow" shortName="InvalidFunctionClassNameInspection" displayName="Invalid class name"
-                     groupName="Service"
-                     enabledByDefault="true" level="WARNING"
-                     language="XML"
-                     implementationClass="ru.oldtown.idea.workflowplugin.config.workflow.xml.inspection.InvalidFunctionClassNameInspection"/>
+    <annotator language="XML" implementationClass="ru.oldtown.idea.workflowplugin.config.workflow.xml.XmlClassFunctionAnnotator"/>
 
   </extensions>
 
