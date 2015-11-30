@@ -3,9 +3,7 @@ package ru.oldtown.idea.workflowplugin.util;
 import com.intellij.psi.PsiElement;
 import com.jetbrains.php.lang.psi.elements.StringLiteralExpression;
 
-/**
- * Created by Андрей Малофейкин on 05.11.2015.
- */
+
 public class PsiElementUtils {
     public static String getMethodParameter(PsiElement parameter) {
 

@@ -11,8 +11,18 @@ import ru.oldtown.idea.workflowplugin.util.completion.PhpNamespaceCompletionProv
 public class XmlCompletionContributor extends CompletionContributor {
 
     public XmlCompletionContributor() {
-        extend(CompletionType.BASIC, XmlHelper.getArgumentFunctionClassNamePattern(), new PhpClassCompletionProvider());
-        extend(CompletionType.BASIC, XmlHelper.getArgumentFunctionClassNamePattern(), new PhpNamespaceCompletionProvider());
+        extend(CompletionType.BASIC, XmlHelper.getFunctionPhpClassHandlerPattern(), new PhpClassCompletionProvider());
+        extend(CompletionType.BASIC, XmlHelper.getFunctionPhpClassHandlerPattern(), new PhpNamespaceCompletionProvider());
+
+        extend(CompletionType.BASIC, XmlHelper.getConditionPhpClassHandlerPattern(), new PhpClassCompletionProvider());
+        extend(CompletionType.BASIC, XmlHelper.getConditionPhpClassHandlerPattern(), new PhpNamespaceCompletionProvider());
+
+        extend(CompletionType.BASIC, XmlHelper.getValidatorPhpClassHandlerPattern(), new PhpClassCompletionProvider());
+        extend(CompletionType.BASIC, XmlHelper.getValidatorPhpClassHandlerPattern(), new PhpNamespaceCompletionProvider());
+
+
+        extend(CompletionType.BASIC, XmlHelper.getRegisterPhpClassHandlerPattern(), new PhpClassCompletionProvider());
+        extend(CompletionType.BASIC, XmlHelper.getRegisterPhpClassHandlerPattern(), new PhpNamespaceCompletionProvider());
     }
 
 }

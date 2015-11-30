@@ -1,6 +1,7 @@
 package ru.oldtown.idea.workflowplugin.config.workflow.xml;
 
 import com.intellij.patterns.*;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlTag;
 import com.intellij.psi.xml.XmlTokenType;
@@ -11,6 +12,10 @@ import com.intellij.psi.xml.XmlTokenType;
  */
 public class XmlHelper {
 
+    public final static String functionTag = "function";
+    public final static String conditionTag = "condition";
+    public final static String validatorTag = "validator";
+    public final static String registerTag = "register";
 
     public static PsiFilePattern.Capture<PsiFile> getXmlFilePattern() {
         return XmlPatterns.psiFile()
@@ -19,7 +24,7 @@ public class XmlHelper {
                 );
     }
 
-    public static PsiElementPattern getArgumentFunctionClassNamePattern() {
+    public static ElementPattern<PsiElement> getPhpClassReferencePattern(String tag) {
         return XmlPatterns
                 .psiElement(XmlTokenType.XML_DATA_CHARACTERS)
                 .withParent(XmlPatterns
@@ -38,7 +43,7 @@ public class XmlHelper {
                         )
                 ).inside(XmlPatterns
                         .psiElement(XmlTag.class)
-                        .withName("function").withChild(
+                        .withName(tag).withChild(
                                 XmlPatterns.xmlAttribute("type").withValue(
                                         XmlPatterns.string().equalTo("class")
                                 )
@@ -47,4 +52,20 @@ public class XmlHelper {
     }
 
 
+    public static ElementPattern<PsiElement> getFunctionPhpClassHandlerPattern() {
+        return getPhpClassReferencePattern(functionTag);
+    }
+
+    public static ElementPattern<PsiElement> getConditionPhpClassHandlerPattern() {
+        return getPhpClassReferencePattern(conditionTag);
+    }
+
+    public static ElementPattern<PsiElement> getValidatorPhpClassHandlerPattern() {
+        return getPhpClassReferencePattern(validatorTag);
+    }
+
+
+    public static ElementPattern<PsiElement> getRegisterPhpClassHandlerPattern() {
+        return getPhpClassReferencePattern(registerTag);
+    }
 }

@@ -1,20 +1,15 @@
 package ru.oldtown.idea.workflowplugin.config;
 
-import com.intellij.codeInsight.completion.impl.CamelHumpMatcher;
-import com.intellij.codeInsight.completion.impl.BetterPrefixMatcher;
-import com.intellij.codeInsight.lookup.LookupElement;
+
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementResolveResult;
 import com.intellij.psi.PsiPolyVariantReferenceBase;
 import com.intellij.psi.ResolveResult;
 import com.jetbrains.php.PhpIndex;
-import com.jetbrains.php.completion.PhpClassLookupElement;
 import com.jetbrains.php.lang.psi.elements.PhpClass;
 import com.jetbrains.php.lang.psi.elements.StringLiteralExpression;
 import ru.oldtown.idea.workflowplugin.util.PsiElementUtils;
-import ru.oldtown.idea.workflowplugin.util.completion.PhpClassReferenceInsertHandler ;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -43,7 +38,7 @@ public class PhpClassReference extends PsiPolyVariantReferenceBase<PsiElement> {
     @Override
     public ResolveResult[] multiResolve(boolean incompleteCode) {
 
-        List<ResolveResult> results = new ArrayList<ResolveResult>();
+        List<ResolveResult> results = new ArrayList<>();
         PhpIndex phpIndex = PhpIndex.getInstance(getElement().getProject());
 
         if(this.useClasses) {

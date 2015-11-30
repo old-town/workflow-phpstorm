@@ -5,7 +5,7 @@ package ru.oldtown.idea.workflowplugin.util;
 import com.intellij.psi.PsiElement;
 import com.jetbrains.php.lang.psi.elements.PhpClass;
 import ru.oldtown.idea.workflowplugin.util.completion.StringUtils;
-import java.util.*;
+
 
 public class PhpElementsUtil {
 
@@ -72,7 +72,7 @@ public class PhpElementsUtil {
     }
 
 
-    public static interface ClassForCompletionVisitor {
-        public void visit(PhpClass phpClass, String presentableFQN, String prefix);
+    public interface ClassForCompletionVisitor {
+        void visit(PhpClass phpClass, String presentableFQN, String prefix);
     }
 }

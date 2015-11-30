@@ -2,6 +2,7 @@ package ru.oldtown.idea.workflowplugin.config.workflow.xml;
 
 import com.intellij.psi.PsiReferenceContributor;
 import com.intellij.psi.PsiReferenceRegistrar;
+import org.jetbrains.annotations.NotNull;
 import ru.oldtown.idea.workflowplugin.config.workflow.xml.provider.ServiceReferenceProvider;
 
 /**
@@ -10,13 +11,28 @@ import ru.oldtown.idea.workflowplugin.config.workflow.xml.provider.ServiceRefere
 public class XmlReferenceContributor extends PsiReferenceContributor {
 
     @Override
-    public void registerReferenceProviders(PsiReferenceRegistrar registrar) {
+    public void registerReferenceProviders(@NotNull PsiReferenceRegistrar registrar) {
 
         registrar.registerReferenceProvider(
-                XmlHelper.getArgumentFunctionClassNamePattern(),
+                XmlHelper.getFunctionPhpClassHandlerPattern(),
                 new ServiceReferenceProvider()
         );
 
+        registrar.registerReferenceProvider(
+                XmlHelper.getConditionPhpClassHandlerPattern(),
+                new ServiceReferenceProvider()
+        );
+
+        registrar.registerReferenceProvider(
+                XmlHelper.getValidatorPhpClassHandlerPattern(),
+                new ServiceReferenceProvider()
+        );
+
+
+        registrar.registerReferenceProvider(
+                XmlHelper.getRegisterPhpClassHandlerPattern(),
+                new ServiceReferenceProvider()
+        );
     }
 
 }
