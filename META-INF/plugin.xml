@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>ru.oldtown.idea.workflowplugin</id>
   <name>Old Town Workflow Plugin</name>
-  <version>1.0</version>
+  <version>1.1</version>
   <vendor email="and-rey2@yandex.ru" url="https://github.com/old-town/">OldTown</vendor>
 
   <description><![CDATA[
